@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Profile Page </title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="menu-mobile">
+            <a href="#" onclick="showMenu()">Menu</a>
+        </div>
+        <ul id="menu">
+            <li><a href="#"> HOME</a></li>
+            <li><a href="#"> PRODUCT</a></li>
+            <li><a href="#"> GALLERY</a></li>
+            <li><a href="#"> NEWS</a></li>
+            <li><a href="#"> MY INVENTORY</a></li>
+        </ul>
+    </nav>
+
+    <section id="box-profile">
+        <div class="img-profile">
+            <div class="photo" style="background-image: url(assets/img/profile.jpg);"></div>
+        </div>
+        <div class="description">
+            <h1 id="pName">Muhammad Fadhil Adha</h1>
+            <p id="pRole">Fullstack Mobile Developer</p>
+            <a href="#input-form" class="button bg-green" onclick="editForm()">Edit</a>
+            <a href="#" class="button border-blue">Resume</a>
+        </div>
+        <div class="information">
+            <div class="data">
+                <p class="field">Availability</p>
+                <p id="pAvailable" class="text-gray">Full Time</p>
+            </div>
+            <div class="data">
+                <p class="field">Age</p>
+                <p id="pAge" class="text-gray">18</p>
+            </div>
+            <div class="data">
+                <p class="field">Location</p>
+                <p id="pLocation" class="text-gray">Medan, Indonesia</p>
+            </div>
+            <div class="data">
+                <p class="field">Years Experience</p>
+                <p id="pExperience" class="text-gray">8</p>
+            </div>
+            <div class="data">
+                <p class="field">Email</p>
+                <p id="pEmail" class="text-gray">fadhil.adhaa26@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="input-form">
+        <!-- <form method="" action="">  -->
+            <div class="form">
+                <label for="">Name</label>
+                <input type="text" name="name" id="inpName"> 
+            </div>
+            <div class="form">
+                <label for="">Role</label>
+                <input type="text" name="role" id="inpRole"> 
+            </div>
+            <div class="form">
+                <label for="">Availability</label>
+                <input type="text" name="Availability" id="inpAvailable"> 
+            </div>
+            <div class="form">
+                <label for="">Age</label>
+                <input type="number" name="age" id="inpAge"> 
+            </div>
+            <div class="form">
+                <label for="">Location</label>
+                <input type="text" name="location" id="inpLocation"> 
+            </div>
+            <div class="form">
+                <label for="">Years Experience</label>
+                <input type="number" name="years" id="inpYears"> 
+            </div>
+            <div class="form">
+                <label for="">Email</label>
+                <input type="email" name="email" id="inpEmail"> 
+            </div>
+            <div class="form">
+                <input onclick="simpanForm()" type="submit" name="submit" id="" value="SUBMIT" class="bg-blue"> 
+            </div>
+        <!-- </form> -->
+    </section>
+<script>
+    var formMenu = document.getElementById("input-form");
+    formMenu.style.display = "none";
+
+    
+    function editForm(){
+        if (formMenu.style.display === "none") {
+                formMenu.style.display = "block";
+        } else {
+                formMenu.style.display = "none";
+        }
+        var name = document.getElementById("pName").innerHTML;
+        var role = document.getElementById("pRole").innerHTML;
+        var available = document.getElementById("pAvailable").innerHTML;
+        var age = document.getElementById("pAge").innerHTML;
+        var location = document.getElementById("pLocation").innerHTML;
+        var years = document.getElementById("pExperience").innerHTML;
+        var email = document.getElementById("pEmail").innerHTML;
+        
+        document.getElementById("inpName").value = name;
+        document.getElementById("inpRole").value = role;
+        document.getElementById("inpAvailable").value = available;
+        document.getElementById("inpAge").value = age;
+        document.getElementById("inpLocation").value = location;
+        document.getElementById("inpYears").value = years;
+        document.getElementById("inpEmail").value = email;
+    }
+    
+    function simpanForm(){
+        formMenu.style.display = "none";
+        var name = document.getElementById("inpName").value;
+        var role = document.getElementById("inpRole").value;
+        var available = document.getElementById("inpAvailable").value;
+        var age = document.getElementById("inpAge").value;
+        var location =  document.getElementById("inpLocation").value;
+        var years = document.getElementById("inpYears").value;
+        var email = document.getElementById("inpEmail").value;
+
+        document.getElementById("pName").innerHTML = name;
+        document.getElementById("pRole").innerHTML = role;
+        document.getElementById("pAvailable").innerHTML = available;
+        document.getElementById("pAge").innerHTML = age;
+        document.getElementById("pLocation").innerHTML = location;
+        document.getElementById("pExperience").innerHTML = years;
+        document.getElementById("pEmail").innerHTML = email;
+
+    } 
+
+    function showMenu(){
+        var menu = document.getElementById("menu");
+        var box = document.getElementById("box-profile");
+
+        if(menu.style.display === "block"){
+            menu.style.display = "none";
+            box.style.paddingTop = "0px";
+        }else{
+            menu.style.display = "block";
+            box.style.paddingTop = "125px";
+        }
+    }
+</script>
+
+</body>
+</html>
